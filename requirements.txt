@@ -1,1 +1,1 @@
-flaskwebgui
+pywebview
