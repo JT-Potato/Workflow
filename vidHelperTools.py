@@ -16,3 +16,7 @@ def getHeight():
     for c in range(len(tmp)-2):
         height += tmp[c]
     return height
+
+class macOS():
+    def placeholder():
+        print("uh")

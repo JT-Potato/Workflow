@@ -2,9 +2,25 @@
     <head>
         <link rel="preconnect" href="https://fonts.gstatic.com"> 
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        <script>
+            function sleep(milliseconds) {
+            const date = Date.now();
+            let currentDate = null;
+            do {
+                currentDate = Date.now();
+            } while (currentDate - date < milliseconds);
+            }
+            function fadeIn() {
+                e = document.getElementById("splash");
+                for (let i=0; i < 100; i++) {
+                    e.style.opacity = i;
+
+                }
+            }
+        </script>
     </head>
     <body>
-        <div id="splash" style="">
+        <div id="splash" style="opacity: 0;">
             <h1 style="margin: auto;">Welcome to Workflow One</h1>
         </div>
     </body>
