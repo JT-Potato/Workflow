@@ -3,22 +3,30 @@
         <link rel="preconnect" href="https://fonts.gstatic.com"> 
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     </head>
-    <body onload="pageLoad()" class="">
-        <div id="background" style="background-image: url('/static/image.png')">
-            <div id="splashid">
+    <body onload="earlyPageLoad()" class="">
+        <div id="background" class="hide" style="background-image: url('/static/image.png')">
+            <div id="bootup" style="background-image: url('/static/spudsquad.png')"></div>
+            <div id="splashid" class="splash hide">
                 <h1 style="margin: auto;">Welcome to Workflow One</h1>
+            </div>
+            <div id="everything-else" class="hide">
+
             </div>
         </div>
         <script>
             var e = document.getElementById("splashid");
             var e2 = document.getElementById("background");
-            e.classList.add("splash");
-            e.classList.add("hide");
-            e2.classList.add("hide");
+            var e3 = document.getElementById("everything-else");
+            var bootup = document.getElementById("bootup")
+            function earlyPageLoad() {
+                bootup.classList.add("hide");
+                setTimeout(() => { pageLoad() }, 1000);
+            }
             function pageLoad() {
                 e.classList.remove("hide");
                 e2.classList.remove("hide");
                 setTimeout(() => { e.classList.add("hide") }, 2000);
+                setTimeout(() => { e3.classList.remove("hide") }, 2000);
             }
         </script>
     </body>
