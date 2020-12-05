@@ -5,35 +5,25 @@
     </head>
     <body onload="earlyPageLoad()" class="">
         <img id="bootup" src="/static/spudsquad.png" style="background-color: black;"></img>
-        <div id="background" class="hide" style="background-image: url('/static/image.png')">
-            <div id="splashid" class="splash hide">
-                <h1 style="margin: auto;">Welcome to Workflow One</h1>
-            </div>
+        <div id="background" class="fade_hide">
             <div class="menu">
                 <div class="item">
-                    <p>Add New Project</p>
+                    Make New Project
                 </div>
-                <div class="item">
-                    <p>Open Project</p>
-                </div>
-            </div>
             </div>
         </div>
         <script>
-            var e = document.getElementById("splashid");
             var e2 = document.getElementById("background");
             var e3 = document.getElementById("everything-else");
             var bootup = document.getElementById("bootup")
             function earlyPageLoad() {
-                setTimeout(() => { bootup.classList.add("hide") }, 1000);
+                setTimeout(() => { bootup.classList.add("fade_hide") }, 1000);
                 setTimeout(() => { pageLoad() }, 2000);
             }
             function pageLoad() {
-                bootup.classList.add("bootup_hide")
-                e.classList.remove("hide");
-                e2.classList.remove("hide");
-                setTimeout(() => { e.classList.add("hide") }, 2000);
-                setTimeout(() => { e3.classList.remove("hide") }, 2000);
+                bootup.classList.add("vanish")
+                e2.classList.remove("fade_hide");
+                setTimeout(() => { e3.classList.remove("fade_hide") }, 2000);
             }
         </script>
     </body>
@@ -49,18 +39,27 @@
         .splash {
             text-align: center; max-width: 100vw; height: 100%; display: flex; flex-direction: column; align-items: center;
         }
-        .hide {
+        .fade_hide {
             transition-duration: 1s;
             opacity: 0;
         }
         #background {
-            transition-duration: 1s;
+            background-image: url('/static/image.png'); background-repeat: no-repeat; background-size: cover;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            justify-content: right;
         }
-        .bootup_hide {
+        .vanish {
             display: none;
         }
         .menu {
-            background-color: lightslategray;
+            background-color: #303030;
+            max-width: 500px;
+            width: 30vw;
+            height: auto;
+            color: white;
         }
     </style>
 </html>
