@@ -4,28 +4,13 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     </head>
     <body onload="earlyPageLoad()" class="">
-        <img id="bootup" src="/static/spudsquad.png" style="background-color: black;"></img>
-        <div id="background" class="fade_hide">
+        <div id="background">
             <div class="menu">
                 <div class="item">
                     Make New Project
                 </div>
             </div>
         </div>
-        <script>
-            var e2 = document.getElementById("background");
-            var e3 = document.getElementById("everything-else");
-            var bootup = document.getElementById("bootup")
-            function earlyPageLoad() {
-                setTimeout(() => { bootup.classList.add("fade_hide") }, 1000);
-                setTimeout(() => { pageLoad() }, 2000);
-            }
-            function pageLoad() {
-                bootup.classList.add("vanish")
-                e2.classList.remove("fade_hide");
-                setTimeout(() => { e3.classList.remove("fade_hide") }, 2000);
-            }
-        </script>
     </body>
     <style>
         * {
@@ -55,11 +40,16 @@
             display: none;
         }
         .menu {
-            background-color: #303030;
+            background-color: rgba(30, 30, 30, 0.8);
             max-width: 500px;
-            width: 30vw;
+            width: 300px;
             height: auto;
             color: white;
+            display: flex;
+        }
+        .item {
+            border-top: white;
+            border-bottom: white;
         }
     </style>
 </html>
