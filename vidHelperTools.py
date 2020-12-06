@@ -1,4 +1,5 @@
 from screeninfo import get_monitors
+import json
 def getWidth():
     width = get_monitors()[0].width/2
     width = str(width)
@@ -18,5 +19,8 @@ def getHeight():
     return height
 
 class macOS():
-    def placeholder():
-        print("uh")
+    class config():
+        def save(info):
+            json.dump(info, open("/Library/Application Support/SpudSquad/Workflow/config.workflowconfig"))
+        def load():
+            return json.load(open("/Library/Application Support/SpudSquad/Workflow/config.workflowconfig"))

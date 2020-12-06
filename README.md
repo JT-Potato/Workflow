@@ -11,3 +11,5 @@ Fork the repo, make your changes, start a pull request.
 For macOS, config files are saved in `/Library/Application Support/SpudSquad/Workflow`
 
 For Windows, config files are saved in `%APPDATA%/Workflow`
+
+The config file is named `config.workflowconfig`

@@ -2,14 +2,22 @@ import webview
 from flask import *
 import threading
 import os
+import platform
+import json
+import vidHelperTools
 
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '0'
 app = Flask(__name__)
-
+app.config["workflowconfig"] = {"wallpaper": "url(https://s27688.pcdn.co/wp-content/uploads/2013/08/canstockphoto1830254.jpg)"}
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    if platform.system() == "Darwin":
+        if os.path.isfile("/Library/Application Support/SpudSquad/Workflow/config.workflowconfig") == False:
+            vidHelperTools.macOS.config.save(app.config["workflowconfig"])
+        else:
+            app.config["workflowconfig"] = vidHelperTools.macOS.config.load()
+    return render_template("index.html", data=app.config["workflowconfig"])
 
 def run():
     app.run()
