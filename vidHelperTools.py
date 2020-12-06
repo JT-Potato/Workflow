@@ -21,6 +21,6 @@ def getHeight():
 class macOS():
     class config():
         def save(info):
-            json.dump(info, open("/Library/Application Support/SpudSquad/Workflow/config.workflowconfig"))
+            json.dump(info, open("/Library/Application Support/SpudSquad/Workflow/config.workflowconfig", "w"))
         def load():
-            return json.load(open("/Library/Application Support/SpudSquad/Workflow/config.workflowconfig"))
+            return json.load(open("/Library/Application Support/SpudSquad/Workflow/config.workflowconfig", "r"))
