@@ -8,8 +8,8 @@ Workflow is a new software developed by Spud Squad, to make content creation eas
 Fork the repo, make your changes, start a pull request.
 
 # Technical details
-For macOS, config files are saved in `/Library/Application Support/SpudSquad/Workflow`
+For macOS, config files are saved in `~/.config/SpudSquad/Workflow`
 
-For Windows, config files are saved in `%APPDATA%/Workflow`
+For Windows, config files are saved in `%APPDATA%/SpudSquad/Workflow`
 
 The config file is named `config.workflowconfig`
