@@ -13,8 +13,8 @@ app.config["workflowconfig"] = {"wallpaper": "url(https://s27688.pcdn.co/wp-cont
 @app.route("/")
 def index():
     if platform.system() == "Darwin":
-        if os.path.isfile("/Library/Application Support/SpudSquad/Workflow/config.workflowconfig") == False:
-            os.makedirs("/Library/Application Support/SpudSquad/Workflow")
+        if os.path.isfile("~/.config/SpudSquad/Workflow/config.workflowconfig") == False:
+            os.makedirs("~/.config/SpudSquad/Workflow/config.workflowconfig")
             vidHelperTools.macOS.config.save(app.config["workflowconfig"])
         else:
             app.config["workflowconfig"] = vidHelperTools.macOS.config.load()
