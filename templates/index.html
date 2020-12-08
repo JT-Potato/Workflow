@@ -6,7 +6,7 @@
     <body onload="earlyPageLoad()" class="">
         <div id="background">
             <div class="menu" id="optionmenu">
-                <div class="item">
+                <div class="item" onclick="newProj();">
                     Make New Project
                 </div>
                 <div class="item">
@@ -59,9 +59,18 @@
             justify-content: center;
             align-items: center;
         }
+        .item:hover {
+            background-color: rgba(50, 50, 50, 0.5);
+            cursor: pointer;
+            transition: 10ms;
+        }
     </style>
     <script>
         var jsWallpaperVar = "{{ data['wallpaper'] }}";
         document.getElementById("background").style.backgroundImage = jsWallpaperVar;
+        function newProj() {
+            var name = prompt("What is the name of the project?");
+            location.href = "/internal/mkproj/" + name;
+        }
     </script>
 </html>
