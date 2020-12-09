@@ -1,4 +1,4 @@
-import webview
+from flaskwebgui import FlaskUI
 from flask import *
 import threading
 import os
@@ -10,6 +10,7 @@ from vidHelperTools import config
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '0'
 app = Flask(__name__)
 app.config["workflowconfig"] = vidHelperTools.default_config
+ui = FlaskUI(app)
 
 @app.route("/")
 def index():
@@ -32,12 +33,4 @@ def internal(action, extra):
         else:
             return render_template("require_response.html", question="What is the name of your project?", return_loc="/internal/mkproj/")
 
-def run():
-    app.run()
-
-t = threading.Thread(target=run)
-t.daemon = True
-t.start()
-
-webview.create_window("Workflow One", "http://localhost:5000")
-webview.start()
+ui.run()
