@@ -19,9 +19,15 @@ def getHeight():
         height += tmp[c]
     return height
 
+config_file = "~/.config/SpudSquad/Workflow/config.workflowconfig"
+config_folder = "~/.config/SpudSquad/Workflow"
+default_config = {"wallpaper": "url(https://s27688.pcdn.co/wp-content/uploads/2013/08/canstockphoto1830254.jpg)", "default_proj_loc": "~/Desktop/Videos_Made_With_Workflow"}
+
 class macOS():
     class config():
         def save(info):
             json.dump(info, open(os.path.expanduser("~/.config/SpudSquad/Workflow/config.workflowconfig"), "w"))
         def load():
             return json.load(open(os.path.expanduser("~/.config/SpudSquad/Workflow/config.workflowconfig"), "r"))
+
+def repairConfig():

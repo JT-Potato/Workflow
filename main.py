@@ -5,20 +5,29 @@ import os
 import platform
 import json
 import vidHelperTools
+from vidHelperTools import macOS
 
 os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '0'
 app = Flask(__name__)
-app.config["workflowconfig"] = {"wallpaper": "url(https://s27688.pcdn.co/wp-content/uploads/2013/08/canstockphoto1830254.jpg)"}
+app.config["workflowconfig"] = vidHelperTools.default_config
 
 @app.route("/")
 def index():
     if platform.system() == "Darwin":
-        if os.path.isfile(os.path.expanduser("~/.config/SpudSquad/Workflow/config.workflowconfig")) == False:
-            os.makedirs(os.path.expanduser("~/.config/SpudSquad/Workflow"))
-            vidHelperTools.macOS.config.save(app.config["workflowconfig"])
+        if os.path.isfile(os.path.expanduser(vidHelperTools.config_file)) == False:
+            os.makedirs(os.path.expanduser(vidHelperTools.config_folder))
+            macOS.config.save(app.config["workflowconfig"])
         else:
-            app.config["workflowconfig"] = vidHelperTools.macOS.config.load()
+            app.config["workflowconfig"] = macOS.config.load()
+    vidHelperTools.repairConfig()
     return render_template("index.html", data=app.config["workflowconfig"])
+
+@app.route("/internal/<action>", defaults={'extra': None})
+@app.route("/internal/<action>/<extra>")
+def internal(action, extra):
+    if action == "mkproj":
+        os.makedirs(os.path.expanduser(app.config["workflowconfig"]["default_proj_loc"]) + "/" + extra)
+        return render_template("success.html", message="Your Project Has Been Created!")
 
 def run():
     app.run()
