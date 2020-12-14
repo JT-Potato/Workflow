@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain, dialog } = require('electron')
 
 function createWindow () {
   const win = new BrowserWindow({
@@ -24,3 +24,14 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+ipcMain.on('makeproj', (event, arg) => {
+        dialog.showOpenDialog({properties: ['openDirectory']}).then(
+            result => {
+                var filepath = result.filepaths
+                if (typeof filepath !== 'undefined' && filepath.length > 0) {
+                    //idk
+                }
+            }
+        )
+});
