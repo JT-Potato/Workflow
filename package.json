@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/JT-Potato/Workflow#readme",
   "devDependencies": {
-    "electron": "^11.0.4"
+    "electron": "^11.1.0"
   }
 }
