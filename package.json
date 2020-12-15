@@ -20,5 +20,10 @@
   "homepage": "https://github.com/JT-Potato/Workflow#readme",
   "devDependencies": {
     "electron": "^11.1.0"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "node-notifier": "^9.0.0",
+    "readline-sync": "^1.4.10"
   }
 }
