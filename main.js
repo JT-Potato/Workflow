@@ -1,8 +1,8 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 var fs = require('fs');
 var path = require('path');
-var readline = require('readline-sync');
 const notifier = require('node-notifier');
+var backend = require('./internal/backend_functions')
 
 function createWindow () {
   const win = new BrowserWindow({
@@ -33,7 +33,7 @@ ipcMain.on('makeproj', (event, arg) => {
     dialog.showOpenDialog({properties: ['openDirectory']}).then(
         result => {
             var filepath = result.filePaths
-            if (typeof filepath !== 'undefined' && filepath.length > 0) {
+            if (backend.filepathCheck(filepath)) {
                 filepath = filepath[0]
                 var arr = filepath.split('/');
                 var name = arr[arr.length-1] || arr[arr.length-2];
@@ -50,6 +50,17 @@ ipcMain.on('makeproj', (event, arg) => {
         }
     )
 });
+
+ipcMain.on('openproj', (event, arg) => {
+    dialog.showOpenDialog({properties: ['openDirectory']}).then(
+        result => {
+            var filepath = result.filePaths
+            if (backend.filepathCheck(filepath)) {
+                
+            }
+        }
+    )
+})
 
 ipcMain.on('settings', (event, arg) => {
     //idk

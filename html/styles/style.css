@@ -1,0 +1,21 @@
+* {
+    font-family: Inter;
+    font-weight: 400;
+    margin: 0;
+}
+
+h1 {
+    font-size: 5vh;
+}
+
+#background {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+
+@import "menu.css";
