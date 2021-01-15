@@ -5,4 +5,4 @@ This project is designed to aid the workflows of smaller, more flexible content 
 The folder you select to create your project in is the Project Folder.
 
 # Developer
-See developer docs at DEVELOPER.md
+See developer docs at DEVELOPER.md: https://github.com/JT-Potato/Workflow/blob/master/DEVELOPER.md
