@@ -16,6 +16,7 @@ var registerHandlers = function(ipcMain) {
                 }
             }
         )
+        .catch(error => errorHandler(error))
     })
 
     //Make a project
