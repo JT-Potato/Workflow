@@ -15,6 +15,8 @@ var registerHandlers = function(ipcMain) {
             }
         )
     })
+    .catch(error => console.log("im dying"))
+    .finally(() => console.log("is it done yet"))
     ipcMain.on('makeproj', (event, arg) => {
         dialog.showOpenDialog({properties: ['openDirectory']}).then(
             result => {
@@ -35,6 +37,8 @@ var registerHandlers = function(ipcMain) {
                 }
             }
         )
-    });
+    })
+    .catch(error => console.log("im dying"))
+    .finally(() => console.log("is it done yet"))
 }
 module.exports = registerHandlers
