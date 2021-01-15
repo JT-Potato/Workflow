@@ -1,4 +1,4 @@
-function filepathCheck(filepath) {
+var filePathCheck = function(filepath) {
     if (typeof filepath !== 'undefined' && filepath.length > 0) {
         return true
     }
@@ -6,4 +6,4 @@ function filepathCheck(filepath) {
         return false
     }
 }
-module.exports = {filepathCheck: filepathCheck()}
+module.exports.filePathCheck = filePathCheck
