@@ -1,3 +1,4 @@
+@import "menu.css";
 * {
     font-family: Inter;
     font-weight: 400;
@@ -17,5 +18,3 @@ h1 {
     flex-direction: row;
     justify-content: right;
 }
-
-@import "menu.css";
