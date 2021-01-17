@@ -13,6 +13,7 @@ var registerHandlers = function(ipcMain) {
                 var filepath = result.filePaths
                 if (backend.filePathCheck(filepath)) {
                     console.log(filepath)
+                    event.returnValue
                 }
             }
         )
@@ -33,14 +34,12 @@ var registerHandlers = function(ipcMain) {
                     let project = {"name": name}
                     project = JSON.stringify(project);
                     fs.writeFileSync(path.join(filepath, 'project.json'), project)
-                    notifier.notify({
-                        title: 'Workflow',
-                        message: 'Project Created Successfully'
-                    });
+                    notifier.notify({title: 'Workflow', message: 'Project Created Successfully'})
                 }
             }
         )
         .catch(error => errorHandler(error))
     })
 }
+
 module.exports = registerHandlers
