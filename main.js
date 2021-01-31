@@ -1,6 +1,6 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 var registerHandlers = require('./internal/channelListeners')
-
+var devCfg =  require("./boot/devSecretConfig")
 function createWindow() {
   const win = new BrowserWindow({
     webPreferences: {
@@ -8,8 +8,11 @@ function createWindow() {
       enableRemoteModule: true
     }
   })
-
-  win.loadFile('html/index.html')
+  if(devCfg.production == true) {
+    win.removeMenu()
+    console.log("Workflow: Is Production App")
+  }
+  win.loadFile('index.html')
 }
 
 app.whenReady().then(function() {

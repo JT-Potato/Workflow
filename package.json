@@ -25,6 +25,7 @@
     "fs": "0.0.1-security",
     "jquery": "^3.5.1",
     "node-notifier": "^9.0.0",
+    "package-lock.json": "^1.0.0",
     "readline-sync": "^1.4.10"
   }
 }
