@@ -1,12 +1,17 @@
 [
         {
             "name": "Settings",
-            "icon": "",
+            "icon": "os/dock_icons/placeholder.png",
             "action": ""
         },
         {
             "name": "Workflow Send",
-            "icon": "",
+            "icon": "os/dock_icons/placeholder.png",
+            "action": ""
+        },
+        {
+            "name": "Workflow Project Manager",
+            "icon": "os/dock_icons/placeholder.png",
             "action": ""
         }
 ]

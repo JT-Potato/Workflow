@@ -3,7 +3,7 @@ var desktop = document.createElement("div")
 document.getElementById("body").appendChild(desktop)
 var config = {
                 "wallpaper": "os/desktop/Brighton/rock4.jpg",
-                "dockHeight": "50",
+                "dockHeight": "60",
                 "blur": "5"
             } //replace with config from cookiieee
 desktop.setAttribute(
@@ -31,9 +31,11 @@ dock.setAttribute(
                     bottom: 0;
                     display: flex;
                     justify-content: center;
+                    align-items: center;
                     padding-left: 10px;
                     padding-right: 10px;`
                 )
+
 //dock icons
 var dockIcons
 try {
@@ -44,8 +46,11 @@ catch(err) {
     console.log(err)
 }
 dockIcons.forEach(function(item, index) {
+    var iconparent = document.createElement("span")
+    iconparent.setAttribute("title", item["name"])
+    dock.appendChild(iconparent)
     var icon = document.createElement("img")
-    icon.setAttribute("style", `height: ${config["dockHeight"]}px; margin-left: 5px; margin-right: 5px;`)
+    icon.setAttribute("style", `height: 80%; margin-left: 5px; margin-right: 5px;`)
     icon.src = item["icon"]
-    dock.appendChild(icon)
+    iconparent.appendChild(icon)
 })
