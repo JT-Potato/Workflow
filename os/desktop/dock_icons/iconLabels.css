@@ -1,0 +1,12 @@
+.iconTxt {
+    display: none;
+}
+.iconImage:hover + .iconTxt {
+    display: block;
+    position: fixed;
+    top: -50px;
+    background-color: rgba(40, 40, 40, 0.7);
+    padding: 2%;
+    border-radius: 5px;
+    color: white;
+}

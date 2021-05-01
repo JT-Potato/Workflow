@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs');
 const errorHandler = require('./internal/errorHandle') //from the perspective of index.html
 
 var desktop = document.createElement("div")
@@ -36,6 +36,12 @@ dockParent.appendChild(dock)
 dock.setAttribute("style", styleTransparent + "margin-bottom: 5px;")
 
 //dock icons
+//Dock icon CSS behaviours:
+var iconStyle = document.createElement("link")
+iconStyle.setAttribute("href", "./os/desktop/dock_icons/iconLabels.css")
+iconStyle.setAttribute("rel", "stylesheet")
+document.head.appendChild(iconStyle)
+
 var dockIcons
 try {
     const jsonString = fs.readFileSync('os/dock.json')
@@ -46,10 +52,22 @@ catch(err) {
 }
 
 dockIcons.forEach(function(item, index) {
+    //icon
     var icon = document.createElement("div")
+
+    //Icon image
     var iconImage = document.createElement("img")
     iconImage.setAttribute("style", `height: 80%; margin-left: 5px; margin-right: 5px; margin-bottom: 12%; margin-top: 8%;`)
     iconImage.src = item["icon"]
+    iconImage.setAttribute("class", "iconImage")
+
+    //Icon hover text
+    var hlText = document.createElement("p")
+    hlText.innerText = item['name']
+    hlText.setAttribute("class", "iconTxt")
+
+    //Append all things to the icon
     icon.appendChild(iconImage)
-    dock.appendChild(icon)
+    icon.appendChild(hlText)
+    dock.appendChild(icon) //Attach icon to dock
 })

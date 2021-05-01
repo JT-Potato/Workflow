@@ -15,7 +15,7 @@ To run (for testing): `npm start`
 # Design Guidelines
 1. Minimise sharp edges, use curves wherever possible
 2. Refer to: https://developer.apple.com/design/human-interface-guidelines/macos/visual-design, regardless of the platform.
-3. Use GIMP for creating logos. This allows everyone to easily edit the image (we don't want contribution behind a paywall if you use Illustrate, for example)
+3. Use GIMP or some other FOSS for creating logos. This allows everyone to easily edit the image (we don't want contribution behind a paywall if you use Adobe Illustrate, for example)
 
 # We need help
 I have no idea how to do this

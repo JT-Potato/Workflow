@@ -1,7 +1,6 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 require('v8-compile-cache');
 
-var registerHandlers = require('./internal/channelListeners') //Event handlers
 var devCfg =  require("./boot/devSecretConfig") //Secret developer configs
 
 //Settings for the Nodejs window.
@@ -23,7 +22,6 @@ function createWindow() {
 }
 
 app.whenReady().then(function() {
-  registerHandlers(ipcMain)
   createWindow()
 })
 
