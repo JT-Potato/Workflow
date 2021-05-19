@@ -1,8 +1,6 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 require('v8-compile-cache');
 
-var devCfg =  require("./boot/devSecretConfig") //Secret developer configs
-
 //Settings for the Nodejs window.
 function createWindow() {
   const win = new BrowserWindow({
@@ -12,13 +10,8 @@ function createWindow() {
     }
   })
 
-  //Set whether or not this is a production app
-  if(devCfg.production == true) {
-    win.removeMenu()
-    console.log("Workflow: Is Production App")
-  }
   //Loads index.html - the foundation of our app
-  win.loadFile('index.html')
+  win.loadFile('./index.html')
 }
 
 app.whenReady().then(function() {
