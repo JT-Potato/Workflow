@@ -21,41 +21,51 @@
                 background-position: center;
                 width: 100vw;
                 height: 100vh;
-                z-index: 0;
+                z-index: -1;
                 position: absolute;
             }
         </style>
     </div>
 
-    <div id="fileShareWindow" class="window">
-        <style>
-            #fileShareWindow {
-                width: 300px;
-                height: 300px;
-                margin: auto;
-            }
-        </style>
-    </div>
     <div id="humanInterfaceManager">
         <style>
             #humanInterfaceManager {
+                width: 100vw;
+                height: 100vh;
                 display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+            :root {
+                /*transparency control*/
+                --backgroundColor: white;
+                --backgroundBlur: none;
             }
             .window {
                 border-radius: 20px;
-                background-color: white;
-                z-index: 1;
+                background-color: var(--backgroundColor);
+                backdrop-filter: var(--backgroundBlur);
                 position: absolute;
+            }
+
+            #fileShareWindow {
+                    margin: auto;
+                    width: 100%;
+                    height: 100%;
             }
         </style>
         <script>
             //Transparency
             transparencyEnabled = true //replace this with reading settings from cookie
             if (transparencyEnabled) {
-                $(".window").css("background-color", "rgba(255, 255, 255, 0.9")
-                $(".window").css("backdrop-filter", "blur(10px)")
+                document.documentElement.style.setProperty("--backgroundColor", "rgba(255, 255, 255, 0.8")
+                document.documentElement.style.setProperty("--backgroundBlur", "blur(10px)")
             }
         </script>
+
+        <div id="fileShareWindow" class="window">
+            hi
+        </div>
     </div>
 </body>
 
