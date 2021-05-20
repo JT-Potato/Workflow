@@ -1,10 +1,62 @@
 <html>
-    <head>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-    </head>
 
-    <body id="body" style="padding: 0; margin: 0;">
-        <script src="boot/osinit.js"></script>
-    </body>
+<head>
+    <script>var $ = jQuery = require('jquery');</script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+
+<body id="body" style="padding: 0; margin: 0;">
+    <div id="wallpaper">
+        <script>
+            //wallpaper
+            wallpaperSrc = "./Brighton/rock4.jpg" //replace this with cookie settings
+            $("#wallpaper").css("background-image", "url(" + wallpaperSrc + ")")
+        </script>
+        <style>
+            #wallpaper {
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+                width: 100vw;
+                height: 100vh;
+                z-index: 0;
+                position: absolute;
+            }
+        </style>
+    </div>
+
+    <div id="fileShareWindow" class="window">
+        <style>
+            #fileShareWindow {
+                width: 300px;
+                height: 300px;
+                margin: auto;
+            }
+        </style>
+    </div>
+    <div id="humanInterfaceManager">
+        <style>
+            #humanInterfaceManager {
+                display: grid;
+            }
+            .window {
+                border-radius: 20px;
+                background-color: white;
+                z-index: 1;
+                position: absolute;
+            }
+        </style>
+        <script>
+            //Transparency
+            transparencyEnabled = true //replace this with reading settings from cookie
+            if (transparencyEnabled) {
+                $(".window").css("background-color", "rgba(255, 255, 255, 0.9")
+                $(".window").css("backdrop-filter", "blur(10px)")
+            }
+        </script>
+    </div>
+</body>
+
 </html>
