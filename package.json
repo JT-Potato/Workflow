@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/JT-Potato/Workflow#readme",
   "devDependencies": {
-    "electron": "^11.2.0"
+    "electron": "^11.4.7"
   },
   "dependencies": {
     "fs": "0.0.1-security",

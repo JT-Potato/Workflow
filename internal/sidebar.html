@@ -1,0 +1,52 @@
+
+<div id="wholePageParent" style="height: 100vh; width: 100vw; display: flex;">
+    <div id="sidebar">
+        <style>
+            #sidebar {
+                background-color: rgb(39, 38, 38);
+                height: 100vh;
+                width: 80px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                color: white;
+            }
+            .sidebaritem {
+                width: 80px;
+                height: 80px;
+                background-color: rgb(88, 88, 88)
+            }
+        </style>
+        <div class="sidebaritem" onclick="openContainer('google', 'https:\/\/www.google.com')">
+            Google
+        </div>
+        <div class="sidebaritem">
+            Discord
+        </div>
+        <div class="sidebaritem">
+            Discord 2
+        </div>
+    
+        <script>
+            function openContainer(container, url) {
+                var webview = document.getElementById("webview")
+                webview.setAttribute("src", url)
+                const loadPage = () => {
+                    console.log("ey")
+                    webview.loadURL(url)
+                    webview.removeEventListener('dom-ready', loadPage);
+                }
+                webview.addEventListener("dom-ready", loadPage)
+            }
+        </script>
+    </div>
+    <webview id="webview" src="https://google.com" style="display:inline-flex; width:100%; height:100%"></webview>
+    <style>
+        body {
+            margin: 0;
+        }
+        #wholePageParent {
+            justify-content: left;
+        }
+    </style>
+</div>
